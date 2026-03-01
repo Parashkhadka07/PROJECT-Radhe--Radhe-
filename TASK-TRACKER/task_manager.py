@@ -49,6 +49,20 @@ def delete_task():
     command_taker()
 
 def create_task():
+    print("ENTER THE NUMBER OF THAK YOU WANT TO ADD:")
+    number=int(input())
+    for i in range(number):
+        print("ENTER THE TITLE OF THE TASK:")
+        TITLE=input()
+        print("ENTER THE STATUS OF THE TASK")
+        STATUS=input()
+        list=file_handaler.Read_file()
+        idd=len(list)+1
+        data={"id":idd,"title":TITLE,"status":STATUS}
+        data_for_file=list.append(data)
+        
+        file_handaler.write_file_or_update_file_or_delete_task(data_for_file)
+
     
 
 

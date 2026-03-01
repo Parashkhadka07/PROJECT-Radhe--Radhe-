@@ -18,6 +18,6 @@ def commands(command):
         task_manager.delete_task()
         pass
     elif command=="4":
-        pass
+        task_manager.create_task()
     else:
         print("PLEASE ENTER THE VALID COMMAND")
