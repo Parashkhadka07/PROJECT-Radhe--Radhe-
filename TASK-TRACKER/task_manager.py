@@ -3,6 +3,7 @@ import sys
 import task_manager
 from main import command_taker
 from colorama import Fore
+import datetime
 
 Task_state=["done","inprocess","todo"]
 
@@ -25,6 +26,8 @@ def read_task_and_print():
             print(f"ID: {task['id']}")
             print(f"Title: {task['title']}")
             print(f"Status: {task['status']}")
+            print(f"createdAt: {task['createdAt']}")
+            print(f"updatedAt: {task['updatedAt']}")
             print("-" * 30)
     
         
@@ -44,7 +47,8 @@ def update_task():
             status=input().lower()
 
             if status in Task_state:
-                Datas[i]={"id":int(id),"title":title,"status":status}
+                x=str(datetime.datetime.now())
+                Datas[i]={"id":int(id),"title":title,"status":status,"createdAt":Datas[i]["createdAt"],"updatedAt":x}
                 file_handaler.write_file_or_update_file_or_delete_task(Datas)
                 print(Fore.GREEN+"YOUR TASK IS UPDATED"+Fore.RESET)
             else:
@@ -70,6 +74,8 @@ def delete_task():
             print(f"ID: {task['id']}")
             print(f"Title: {task['title']}")
             print(f"Status: {task['status']}")
+            print(f"createdAt: {task['createdAt']}")
+            print(f"updatedAt: {task['updatedAt']}")
             print("-" * 30)
     print(Fore.MAGENTA+ "SELECT THE ID OF THE TASK YOU WANT TO DELETE:"+Fore.RESET)
     id=input()
@@ -103,7 +109,8 @@ def create_task():
             new_id = max_id + 1
 
         if STATUS in Task_state:
-            Data={"id":new_id,"title":TITLE,"status":STATUS}
+            x=str(datetime.datetime.now())
+            Data={"id":new_id,"title":TITLE,"status":STATUS,"createdAt":x,"updatedAt":x}
             listt.append(Data)
             file_handaler.write_file_or_update_file_or_delete_task(listt)
             print(Fore.GREEN+"YOUR TASK IS CREATED"+Fore.RESET)
@@ -125,6 +132,8 @@ def sorter(status_entry):
             print(f"ID: {task['id']}")
             print(f"Title: {task['title']}")
             print(f"Status: {task['status']}")
+            print(f"createdAt: {task['createdAt']}")
+            print(f"updatedAt: {task['updatedAt']}")
             print("-" * 30)
     command_taker()      
         

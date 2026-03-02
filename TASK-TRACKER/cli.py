@@ -18,6 +18,8 @@ def commands(command):
                     print(f"ID: {task['id']}")
                     print(f"Title: {task['title']}")
                     print(f"Status: {task['status']}")
+                    print(f"createdAt: {task['createdAt']}")
+                    print(f"updatedAt: {task['updatedAt']}")
                     print("-" * 30)
             command_taker()
         elif commandd==2:
