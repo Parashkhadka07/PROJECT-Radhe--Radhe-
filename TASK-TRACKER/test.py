@@ -1,6 +1,3 @@
-import file_handaler
-list=file_handaler.Read_file()
-print(type(list))
-
-listt=[]
-print(len(listt))
+Task_state=["done","inprocess","todo"]
+for task in Task_state:
+    print(task)
